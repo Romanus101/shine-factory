@@ -8,23 +8,23 @@ import Footer from "./components/Footer";
 export default function App() {
   const slides = [
     {
-      image: "/images/clean1.webp",
-      kicker: "Интерьер",
-      title: "Химчистка салона",
-      text: "Глубокая очистка пластика, ткани, кожи, потолка, ковролина и стекол."
-    },
-    {
-      image: "/images/polish1.webp",
-      kicker: "Экстерьер",
-      title: "Полировка кузова",
-      text: "Коррекция лака в несколько этапов, восстановление глубины цвета и блеска."
-    },
-    {
-      image: "/images/shine1.webp",
-      kicker: "Защита",
-      title: "Керамика и финиш",
-      text: "Защитные составы, которые помогают дольше сохранить результат детейлинга."
-    }
+  image: `${import.meta.env.BASE_URL}images/clean1.webp`,
+  kicker: "Интерьер",
+  title: "Химчистка салона",
+  text: "Глубокая очистка пластика, ткани, кожи, потолка, ковролина и стекол."
+},
+{
+  image: `${import.meta.env.BASE_URL}images/polish1.webp`,
+  kicker: "Экстерьер",
+  title: "Полировка кузова",
+  text: "Коррекция лака в несколько этапов, восстановление глубины цвета и блеска."
+},
+{
+  image: `${import.meta.env.BASE_URL}images/shine1.webp`,
+  kicker: "Защита",
+  title: "Керамика и финиш",
+  text: "Защитные составы, которые помогают дольше сохранить результат детейлинга."
+}
   ];
 
   return (
