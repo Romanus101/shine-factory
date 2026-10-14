@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Hero({ slides }) {
   const safeSlides = Array.isArray(slides) && slides.length
     ? slides
-    : [{ image: "/images/clean1.jpg", text: "CAR DETAILS" }];
+    : [{ image: "/images/clean1.jpg", kicker: "Detailing", title: "Shine Factory", text: "Профессиональный уход за автомобилем" }];
 
   const [index, setIndex] = useState(0);
   const [heroVisible, setHeroVisible] = useState(true);
@@ -17,18 +17,17 @@ export default function Hero({ slides }) {
         setIndex(i);
       }
 
-      // Проверяем, не зашли ли мы в Services или Contact
       const services = document.getElementById("services");
       const contact = document.getElementById("contact");
 
       let hide = false;
       if (services) {
         const rect = services.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.5) hide = true;
+        if (rect.top < window.innerHeight * 0.8) hide = true;
       }
       if (contact) {
         const rect = contact.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.5) hide = true;
+        if (rect.top < window.innerHeight * 0.8) hide = true;
       }
       setHeroVisible(!hide);
     };
@@ -43,12 +42,12 @@ export default function Hero({ slides }) {
   return (
     <section id="hero" className="hero">
       {safeSlides.map((_, i) => (
-  <div
-    key={i}
-    className="hero-section"
-    style={{ height: i === safeSlides.length - 1 ? "200vh" : "100vh" }}
-  />
-))}
+        <div
+          key={i}
+          className="hero-section"
+          style={{ height: i === safeSlides.length - 1 ? "160vh" : "100vh" }}
+        />
+      ))}
 
 
       <div className="hero-bg-layer">
@@ -83,12 +82,9 @@ export default function Hero({ slides }) {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <h1>{current.text}</h1>
-              <p className="hero-sub">
-                {index === 0 && "Премиальная внутренняя и внешняя забота о машине"}
-                {index === 1 && "Глубокая чистка, удаление царапин и потертостей, уборка автомобиля"}
-                {index === 2 && "Профессиональная коррекция и защита внешнего красочного слоя"}
-              </p>
+              <p className="hero-kicker">{current.kicker}</p>
+              <h1>{current.title}</h1>
+              <p className="hero-sub">{current.text}</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -96,8 +92,9 @@ export default function Hero({ slides }) {
 
       {heroVisible && (
         <div className="hero-scroll-hint">
-          <div className="mouse"><span /></div>
-          <div className="text">Scroll</div>
+         <span className="scroll-line" />
+          <span className="scroll-dot" /> 
+          <span className="scroll-text">Листайте вниз</span>
         </div>
       )}
     </section>

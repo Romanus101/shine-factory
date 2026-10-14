@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="footer" aria-label="Footer">
+    <footer className="footer" aria-label="Подвал сайта">
       <div className="container footer-inner">
-        <div>© {new Date().getFullYear()} Детейлинг салон</div>
+        <div>© {new Date().getFullYear()} Shine Factory</div>
         <div className="socials">
-          <a href="#" aria-label="Instagram">Инста</a>
-          <a href="#" aria-label="Facebook">Авито</a>
-          <a href="#" aria-label="Telegram">Тг</a>
+          <a href="#contact">Запись</a>
+          <a href="#services">Услуги</a>
+          <a href="#hero">Наверх</a>
         </div>
       </div>
     </footer>

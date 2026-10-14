@@ -7,18 +7,18 @@ export default function Nav() {
   };
 
   return (
-    <nav className="nav" aria-label="Main navigation">
+    <nav className="nav" aria-label="Основная навигация">
       <div className="nav-inner">
-        <div className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          Детейлинг салон
-        </div>
+        <button className="logo" type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          Shine Factory
+        </button>
         <ul className="nav-links">
-          <li onClick={() => scrollTo("hero")}>Наверх</li>
-          <li onClick={() => scrollTo("services")}>Услуги</li>
-          <li onClick={() => scrollTo("contact")}>Контакты</li>
+          <li><button type="button" onClick={() => scrollTo("hero")}>Наверх</button></li>
+          <li><button type="button" onClick={() => scrollTo("services")}>Услуги</button></li>
+          <li><button type="button" onClick={() => scrollTo("contact")}>Контакты</button></li>
         </ul>
-        <button className="cta" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
-          Забронировать
+        <button className="cta" type="button" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+          Записаться
         </button>
       </div>
     </nav>

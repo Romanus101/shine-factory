@@ -1,94 +1,91 @@
-import React, { useState } from "react";
+import React from "react";
+
+const TELEGRAM_BOT_URL = "https://t.me/YOUR_BOT_USERNAME";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", phone: "", service: "Interior Cleaning", notes: "" });
-  const [sent, setSent] = useState(false);
-
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("Contact form", form);
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-  };
-
   return (
-    <section id="contact" className="section-content section-contact" aria-label="Contact">
-      <div className="container contact-grid">
-        <div className="contact-info">
-          <h2>Свяжитесь с нами</h2>
-          <p>Забронировать услугу или задать вопрос — мы свяжемся с вами в течении одного рабочего дня.</p>
-          <ul className="info-list">
-            <li><strong>Адрес:</strong> ТУТ БУДЕТ АДРЕС</li>
-            <li><strong>Телефон:</strong> ТУТ БУДЕТ НОМЕР</li>
-            <li><strong>График работы:</strong> Пн-Вс 9:00–21:00</li>
-            <li><strong>Email:</strong> ТУТ БУДЕТ ПОЧТА</li>
-          </ul>
-          <div className="contact-cta">
-            <button className="btn" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>Посмотреть услуги</button>
-          </div>
-        </div>
+<section
+  id="contact"
+  className="section-content section-contact"
+  aria-label="Контакты"
+>
+  <div className="container contact-grid">
+    <div className="contact-info">
+      <p className="eyebrow">Контакты</p>
 
-        <form className="contact-form" onSubmit={onSubmit}>
-          <h3>Забронировать услугу</h3>
+      <h2>Подберём уход под состояние автомобиля</h2>
 
-          <label>
-  <span>Имя</span>
-  <input
-    name="name"
-    id="name"
-    autoComplete="name"
-    value={form.name}
-    onChange={onChange}
-    required
-  />
-</label>
+      <p>
+        Расскажите, что хотите привести в порядок: салон,
+        кузов, фары или всё сразу. Подскажем, какие работы
+        подойдут вашему автомобилю и сколько они будут стоить.
+      </p>
 
-<label>
-  <span>Номер</span>
-  <input
-    name="phone"
-    id="phone"
-    autoComplete="tel"
-    value={form.phone}
-    onChange={onChange}
-    required
-  />
-</label>
+      <ul className="info-list">
+        <li>
+          <strong>Адрес</strong>
+          <a
+            className="contact-link"
+            href="https://yandex.ru/maps/?text=Мытищи%2C%20Фабричная%20улица%2C%2017Г%2F109"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Мытищи, Фабричная улица, 17Г/109
+          </a>
+        </li>
 
-<label>
-  <span>Услуга</span>
-  <select
-    name="service"
-    id="service"
-    autoComplete="section-service service"
-    value={form.service}
-    onChange={onChange}
-  >
-    <option>Химическая чистка</option>
-    <option>Полировка кузова</option>
-    <option>Нанесение защитного слоя</option>
-    <option>Другое</option>
-  </select>
-</label>
+        <li>
+          <strong>График работы</strong>
+          <span>Ежедневно с 9:00 до 21:00</span>
+        </li>
 
-<label>
-  <span>Комментарии</span>
-  <textarea
-    name="notes"
-    id="notes"
-    autoComplete="off"
-    value={form.notes}
-    onChange={onChange}
-    rows="4"
-  />
-</label>
+        <li>
+          <strong>Телефон</strong>
+          <a
+            className="contact-link"
+            href="tel:+79169892214"
+          >
+            +7 916 989-22-14
+          </a>
+        </li>
 
+        <li>
+          <strong>Электронная почта</strong>
+          <a
+            className="contact-link"
+            href="mailto:shine-factory@mail.ru"
+          >
+            shine-factory@mail.ru
+          </a>
+        </li>
+      </ul>
+    </div>
 
-          <button className="btn" type="submit">Запросить услугу</button>
-          {sent && <div className="sent-bubble">Запрос отправлен - мы скоро свяжемся с Вами</div>}
-        </form>
-      </div>
-    </section>
+    <div className="contact-form contact-booking">
+      <h3>Обсудим ваш автомобиль?</h3>
+
+      <p>
+        Позвоните нам — ответим на вопросы, поможем выбрать
+        подходящие услуги и сориентируем по стоимости работ.
+      </p>
+
+      <a
+        className="btn small"
+        href="tel:+79169892214"
+      >
+        Позвонить и обсудить детали
+      </a>
+
+      <p className="contact-booking-note">
+        Неудобно звонить? Напишите нам на почту:
+        <br />
+        <a href="mailto:shine-factory@mail.ru">
+          shine-factory@mail.ru
+        </a>
+      </p>
+
+    </div>
+  </div>
+</section>
   );
 }
